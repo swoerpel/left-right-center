@@ -1,1 +1,78 @@
+
 /* You can add global styles to this file, and also import other style files */
+@import "../src/app/shared/library.scss";
+@import "../src/app/shared/styles/vs2015.scss";
+@import "../src/app/shared/constants/constants.scss";
+
+:root {
+
+  --color-neutral-1: #f3f3f3;
+  --color-neutral-2: #bebebe;
+  --color-neutral-3: #585858;
+  --color-neutral-4: #282828;
+  --color-green: #52cf52;
+
+  --color-light: rgb(255, 255, 255);
+  --color-dark: rgb(29, 29, 29);
+  --color-accent: red;
+  --color-accent-subtle: rgba(255, 0, 0, 0.603);
+
+  --box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
+  --border-radius: 5px;
+
+  --size-1: 6rem;
+  --size-2: 3.5rem;
+  --size-3: 2.5rem;
+  --size-4: 1.5rem;
+  --size-5: 1rem;
+  --size-6: 0.75rem;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+
+  font-family: "zen";
+  font-size: 16px;
+  color: var(--color-dark);
+  font-weight: 700;
+  background: transparent;
+  background-color: transparent;
+  z-index: 0;
+  -webkit-tap-highlight-color: transparent;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  overflow-y: scroll;
+  background: var(--color-neutral-1);
+  box-shadow: inset 0 0 4px var(--color-neutral-1);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-neutral-2);
+  border-radius: 10px;
+}
+
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin no-highlight {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
