@@ -1,38 +1,44 @@
 <div class="container">
 
-    <div class="section title" >Left Right Center</div>
+    <div class="section header" >
+        <div class="left">Center: {{centerCount}}</div>
+        <div class="title">Left Right Center</div>
+        <div class="right"></div>
+    </div>
+
     <div class="section content" >
 
-        <config ></config>
+        <config *ngIf="!configComplete"
+            (submit)="submitConfig($event)"></config>
 
-
+        <div *ngIf="configComplete" class="player-container">
+            <div *ngFor="let player of players" class="player">
+                <div class="full-column">
+                    <div class="column"
+                        [ngStyle]="{'height': (player.count / maxCount) * 100 + '%'}" 
+                        [ngClass]="{'selected': player.index === currentPlayerIndex}"  
+                        ></div>
+                </div>
+                <div class="count">
+                    {{player.count}}
+                </div>
+            </div>
+        </div>
     </div>
 
 
-    <div class="footer" >
-
-        <!-- <div class="block">
-            <div class="block-title">
-                Number of Players
-            </div>
-            <div class="block-player-counter">
-                <div class="player-count-action action">-</div>
-                <div class="player-count">4</div>
-                <div class="player-count-action action">+</div>
+    <div class="section footer" >
+        <div class="actions">
+            <div (click)="reset()" class="action">Reset</div>
+            <div (click)="nextTurn()" class="action">Next Turn</div>
+            <div (click)="toggleInterval()" class="action">
+                {{paused ? "Play" : "Pause"}}
             </div>
         </div>
-
-        <div class="block">
-
+        
+        <div class="dice-container">
+            <div *ngFor="let d of rolledDict" class="dice">{{d}}</div>
         </div>
-
-        <div class="block">
-
-        </div>
-
-        <div class="block">
-
-        </div> -->
 
     </div>
 
